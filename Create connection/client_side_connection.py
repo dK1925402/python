@@ -39,7 +39,7 @@ while True :
       #Encode the reply data and send to the server
        client_socket.send(reply.encode()) 
        
-       #store the recive data of the server in server_data
+       #store the recive data of the server in server_data and 1024 is a maximum size of data received from server
        server_data = client_socket.recv(1024)
        
        #if condition is TRUE : receive data from server is 'close' then call closeconnection() fn  for close the connection 
