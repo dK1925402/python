@@ -40,7 +40,7 @@ print('[+] Enter "bye" for close the connection ...')#warn user for how to exit 
 # use while True for chat the client with continuosly
 while True :
 
-     data = conn.recv(1024) #store the recive data of the client
+     data = conn.recv(1024) #store the recive data of the client 1024 is a maximum bitssize of data received from server
      client_data = data.decode()#decode the add the and store in client client_data 
      
      #if condition is TRUE : receive data from client is 'close' then call closeconnection() fn  for close the connection 
