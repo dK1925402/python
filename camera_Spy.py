@@ -10,10 +10,10 @@ os.system('pip install opencv-python-headless')
 
 
 # Telegram Bot API token
-TOKEN = '7135600941:AAFd6-m2E8BzPXHB-z6nIESnBYNbuwiDD8Q'
+TOKEN = ''
 
 # Chat ID of the recipient (can be a group chat ID or a user ID)
-chat_id = '1406652305'
+chat_id = ''
 
 
 # Function to capture and send live images
