@@ -2,4 +2,4 @@
 
 print(eval(input()))
 
-#  used  -> eval()       
+#  used  -> eval()        
