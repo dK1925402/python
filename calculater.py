@@ -1,5 +1,5 @@
 # --------- Calculater ----------------
 
-print(eval(input()))
+print(eval(input("Enter an equation : ")))
 
 #  used  -> eval()        
